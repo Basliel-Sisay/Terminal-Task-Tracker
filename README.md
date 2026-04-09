@@ -1,24 +1,34 @@
-<h1>Terminal-Task-Tracker</h1>
+<h1>Terminal-Task-Tracker (Day 3)</h1>
 
 <p>A lightweight Command Line Interface (CLI) application built with Node.js to manage daily tasks. This project focuses on CRUD operations (Create, Read, Update, Delete) and data persistence using local JSON storage</p>
 
 <h2>Features</h2>
 
-Persistence: All tasks are saved to a local task.json file
+- <strong>Persistence</strong>: All tasks are saved to a local task.json file
 
-CLI Commands: Manage tasks directly from your terminal using process.argv
+- <strong>CLI Commands</strong>: Manage tasks directly from your terminal using process.argv
 
-Case-Insensitive: Commands work whether you type ADD, add, or Add
+- <strong>Case-Insensitive</strong>: Commands work whether you type ADD, add, or Add
 
-Error Handling: Built-in protection against missing arguments and invalid commands
+- <strong>Error Handling</strong>: Built-in protection against missing arguments and invalid commands
+
+<h2> Tech Stack </h2>
+
+- <strong>Runtime</strong>: Node.js (JavaScript)
+
+- <strong>Version Control</strong>: git and gitHub
+
+- <strong> Storage</strong>: JSON (Flat-file database)
+
+- <strong>Environment</strong>: Windows Subsystem for Linux 
 
 <h2>Project Structure</h2>
 
 <pre>
 terminal_task_tracker/
 ├── app.js          # Main entry point; handles CLI arguments and routing
-├── manager.js      # Core logic; processes task data and manages JSON I/O
-├── task.json       # Local database; stores the persistent task objects
+├── manager.js      # Core logic, processes task data and manages JSON I/O
+├── task.json       # Local database, stores the persistent task objects
 ├── package.json    # Project metadata and configuration
 ├── README.md       # Project documentation and usage guide
 └── LICENSE         # Legal usage rights for the repository
@@ -40,7 +50,7 @@ Clone the repository and initialize the project:
 
 <h3>3. Usage</h3>
    
-Run the application using the following commands:
+- Run the application using the following commands:
 
 <table border="1" cellpadding="8" cellspacing="0">
   <thead>
