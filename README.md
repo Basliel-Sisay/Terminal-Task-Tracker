@@ -84,6 +84,16 @@ Clone the repository and initialize the project:
   </tbody>
 </table>
 
+<h2>Output</h2>
+
+![](https://i.ibb.co/k6KL2jRb/Screenshot-2026-04-09-133402.png)
+
+![](https://i.ibb.co/jZvFDFQM/Screenshot-2026-04-09-133429.png)
+
+<h2>Status</h2>
+
+![](https://i.ibb.co/Ps3KHtvy/Screenshot-2026-04-09-133331.png)
+
 <h2>What I Learned (Day 3 Challenge)</h2>
 
 This project was part of a 30-day coding challenge. Key concepts mastered include:
