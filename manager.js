@@ -1,5 +1,8 @@
 const fs = require('fs');
-const task = fs.readFileSync('./task.json', 'utf-8');
+const path = require('path');
+
+const filePath = path.join(__dirname, 'task.json');
+const task = fs.readFileSync(filePath, 'utf-8');
 let finalTask = JSON.parse(task);
 
 function addTask(taskName){
@@ -34,7 +37,7 @@ function remove(id){
 
 function saveChanges(){
 const finalFile = JSON.stringify(finalTask , null , 2);
-fs.writeFileSync('./task.json', finalFile);
+fs.writeFileSync(filePath, finalFile);
 }
 
 module.exports={
