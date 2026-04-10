@@ -1,20 +1,24 @@
-<h1>Terminal-Task-Tracker (Day 3)</h1>
+<h1>Terminal-Task-Tracker (Day 3/4)</h1>
 
-<p>A lightweight Command Line Interface (CLI) application built with Node.js to manage daily tasks. This project focuses on CRUD operations (Create, Read, Update, Delete) and data persistence using local JSON storage</p>
+<p>A professional Command Line Interface (CLI) utility built with Node.js. This tool is globally accessible, allowing you to manage your task workflow from any directory on your system using persistent JSON storage.</p>
 
-<h2>Features</h2>
+<h2>Features (Enhanced)</h2>
 
-- <strong>Persistence</strong>: All tasks are saved to a local task.json file
+- <strong>Global Access</strong>: Use the track command anywhere in your terminal via npm link.
 
-- <strong>CLI Commands</strong>: Manage tasks directly from your terminal using process.argv
+- <strong>Intelligent Pathing</strong>: Utilizes __dirname and path.join to ensure data persistence in a central location, regardless of where the command is executed.
 
-- <strong>Case-Insensitive</strong>: Commands work whether you type ADD, add, or Add
+- <strong>Persistence</strong>: Automated CRUD operations synced to a local task.json database.
 
-- <strong>Error Handling</strong>: Built-in protection against missing arguments and invalid commands
+- <strong>Privacy-First</strong>: Configuration includes .gitignore to keep your personal task data off public repositories.
+
+- <strong>Case-Insensitive</strong>: User-friendly command processing.
 
 <h2> Tech Stack </h2>
 
 - <strong>Runtime</strong>: Node.js (JavaScript)
+
+- <strong>Architecture</strong>: Global CLI Binaries 
 
 - <strong>Version Control</strong>: git and gitHub
 
@@ -26,27 +30,32 @@
 
 <pre>
 terminal_task_tracker/
-├── app.js          # Main entry point; handles CLI arguments and routing
-├── manager.js      # Core logic, processes task data and manages JSON I/O
-├── task.json       # Local database, stores the persistent task objects
-├── package.json    # Project metadata and configuration
-├── README.md       # Project documentation and usage guide
-└── LICENSE         # Legal usage rights for the repository
+├── app.js          # CLI Entry Point; contains the Node "Shebang"
+├── manager.js      # Core Engine; manages absolute pathing and JSON I/O
+├── task.json       # Central Database (Local only)
+├── package.json    # Project metadata & Global Bin configuration
+├── .gitignore      # Prevents personal task data from being tracked
+├── README.md       # Project documentation
+└── LICENSE         # Legal usage rights
 </pre>
 
 <h2>Getting Started</h2>
 
 <h3>1. Prerequisites </h3> 
+
 Ensure you have Node.js installed on your machine.
 
 <h3>2. Installation </h3>
+
 Clone the repository and initialize the project:
 
 <pre>
-  git clone https://github.com/Basliel-Sisay/Terminal-Task-Tracker.git
-  cd terminal_task_tracker
-  npm install
+git clone https://github.com/Basliel-Sisay/Terminal-Task-Tracker.git
+cd terminal_task_tracker
+npm link
 </pre>
+
+Note: If you encounter a permission error during <pre>npm link</pre> you may need to run it with <pre>sudo npm link</pre> or check your <pre>npm permissions </pre>
 
 <h3>3. Usage</h3>
    
@@ -64,22 +73,22 @@ Clone the repository and initialize the project:
     <tr>
       <td>add</td>
       <td>Create a new task</td>
-      <td>node app.js add "Learn git"</td>
+      <td>track add "Complete Day 4"</td>
     </tr>
     <tr>
       <td>list</td>
       <td>View all tasks</td>
-      <td>node app.js list</td>
+      <td>track list</td>
     </tr>
     <tr>
       <td>done</td>
-      <td>Toggle completion status</td>
-      <td>node app.js done 1</td>
+      <td>Toggle completion</td>
+      <td>track done 1</td>
     </tr>
     <tr>
       <td>remove</td>
       <td>Delete a task</td>
-      <td>node app.js remove 1</td>
+      <td>track remove 1</td>
     </tr>
   </tbody>
 </table>
@@ -98,8 +107,20 @@ Clone the repository and initialize the project:
 
 This project was part of a 30-day coding challenge. Key concepts mastered include:
 
-Node.js File System (fs): Reading and writing JSON files synchronously
+- <strong><ins>Node.js File System (fs)</ins></strong>: Reading and writing JSON files synchronously
 
-Module Exports: Separating logic into different files for better maintainability
+- <strong><ins>Module Exports</strong></ins>: Separating logic into different files for better maintainability
 
-Error Handling: Utilizing try/catch blocks to prevent application crashes
+- <strong><ins>Error Handling</strong></ins>: Utilizing try/catch blocks to prevent application crashes
+
+<h2>What I Learned (Day 4 Refactor)</h2>
+
+This phase focused on Software Distribution and System Architecture:
+
+- <strong><ins>Global Binaries</strong></ins>: Using the bin property in package.json to create custom CLI commands.
+
+- <strong><ins>Absolute vs. Relative Paths</strong></ins>: Implementing __dirname and the path module to prevent data fragmentation.
+
+Environment Configuration: Using the #!/usr/bin/env node shebang for cross-platform script execution.
+
+- <strong><ins>Git Security</strong></ins>: Managing .gitignore and git rm --cached to separate source code from user data.
