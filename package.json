@@ -6,6 +6,9 @@
   "scripts": {
     "start": "node app.js"
   },
+  "bin": {
+  "track": "./app.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
