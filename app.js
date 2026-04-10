@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const manager = require('./manager');
 
 const command = process.argv[2]; 
