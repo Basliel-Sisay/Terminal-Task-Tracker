@@ -1,8 +1,24 @@
-<h1>Terminal-Task-Tracker (Day 3/4)</h1>
+<h1>Terminal-Task-Tracker (Day 3-5)</h1>
+
+<h2>Overview</h2>
 
 <p>A professional Command Line Interface (CLI) utility built with Node.js. This tool is globally accessible, allowing you to manage your task workflow from any directory on your system using persistent JSON storage.</p>
 
-<h2>Features (Enhanced)</h2>
+<p><strong> <ins>Day 3</ins> </strong> marked the birth of the Terminal-Task-Tracker. We moved away from temporary variables and implemented Local Persistence using the Node.js fs (File System) module. This phase established the "Create, Read, Update, Delete" (CRUD) cycle, allowing tasks to survive even after the terminal session was closed.
+
+- Focus: Initializing the task.json database and building the manager.js core logic.
+
+- Key Achievement: Successfully parsing and stringifying JSON data to maintain state.</p>
+
+<p> <strong><ins>On Day 4</ins></strong>, we transitioned the tracker from a folder-specific script into a Global System Utility. By refactoring the file path logic from relative to absolute (using __dirname) and utilizing npm link, we enabled the track command to be executed from any directory in the Windows/WSL environment.
+
+- Focus: Environment variables, global symlinks, and path resolution.
+
+- Key Achievement: Decoupling the script from the source folder, allowing for a seamless user experience across the entire OS.</p>
+
+<p><strong><ins>Day 5</ins></strong> focused on Data Enrichment and Terminal Visualization. We upgraded the internal data schema to track when tasks are created and implemented a logic-based progress bar to visualize productivity directly in the command line.</p>
+
+<h2>Features</h2>
 
 - <strong>Global Access</strong>: Use the track command anywhere in your terminal via npm link.
 
@@ -13,6 +29,25 @@
 - <strong>Privacy-First</strong>: Configuration includes .gitignore to keep your personal task data off public repositories.
 
 - <strong>Case-Insensitive</strong>: User-friendly command processing.
+
+- <strong>Temporal Tracking</strong>: Every task now includes a CreatedAt timestamp using the system's local date format.
+
+- <strong>Progress Analytics</strong>: A dynamic progress bar [████░░░░░░] that calculates the ratio of completed vs. total tasks.
+
+- <strong>Legacy Support</strong>: Implementation of a "fallback" system to handle older tasks that don't have metadata.
+
+<h2>Updated Data Schema</h2>
+
+Tasks are now stored with the following structure in task.json:
+
+<pre>
+   {
+  "id": 5,
+  "Name": "Finish Day 5 Documentation",
+  "Completed": false,
+  "CreatedAt": "11/04/2026"
+}
+</pre>
 
 <h2> Tech Stack </h2>
 
@@ -99,9 +134,13 @@ Note: If you encounter a permission error during <pre>npm link</pre> you may nee
 
 ![](https://i.ibb.co/jZvFDFQM/Screenshot-2026-04-09-133429.png)
 
+![]( https://i.ibb.co/279rjbcD/Screenshot-2026-04-11-230805.png)
+
 <h2>Status</h2>
 
 ![](https://i.ibb.co/Ps3KHtvy/Screenshot-2026-04-09-133331.png)
+
+![](https://i.ibb.co/VdxKJL6/Screenshot-2026-04-11-230856.png)
 
 <h2>What I Learned (Day 3 Challenge)</h2>
 
@@ -124,3 +163,15 @@ This phase focused on Software Distribution and System Architecture:
 Environment Configuration: Using the #!/usr/bin/env node shebang for cross-platform script execution.
 
 - <strong><ins>Git Security</strong></ins>: Managing .gitignore and git rm --cached to separate source code from user data.
+
+<h2>What I Learned (Day 5 Enhancement)</h2>
+
+- <strong><ins>Data Schema Evolution</strong></ins>: I learned how to "upgrade" an existing database structure. By adding the CreatedAt property, I understood that as an application evolves, the data objects must become more complex to provide more value.
+
+- <strong><ins>Handling Legacy Data</strong></ins>: I implemented "fallback logic" using the logical OR (||) operator. This taught me how to manage "Grandfathered" data that doesn't have new properties, ensuring the app doesn't break when reading old files.
+
+- <strong><ins>CLI Visualization</strong></ins>: I explored the basics of Terminal UI (TUI) design. By using the .repeat() method and specific Unicode characters (█ and ░), I learned how to translate raw numbers into a visual progress dashboard.
+
+- <strong><ins>Higher-Order Array Methods</strong></ins>: I practiced using .filter() to perform real-time analytics. This allowed me to derive a "Completed vs. Total" ratio without manually looping through the array with a for loop.
+
+- <strong><ins>Mathematical Mapping</strong></ins>: I learned how to map a variable percentage (0-100) to a fixed-width UI element (10 blocks). This involved using Math.round() to ensure the bar fills up in accurate, discrete increments.
