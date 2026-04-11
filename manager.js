@@ -10,6 +10,7 @@ function addTask(taskName){
         "id": finalTask.length + 1,
         "Name": taskName,
         "Completed": false,
+        "CreatedAt" : new Date().toLocaleDateString()
     }
     finalTask.push(taskObject);
     saveChanges();
@@ -18,8 +19,21 @@ function addTask(taskName){
 function listTask(){
     finalTask.forEach(task => {
         const status = task.Completed ? "[✔]" : "[ ]";
-        console.log(`${task.id}. ${status} ${task.Name}`);
+        const date = task.CreatedAt || "Legacy Task";
+        console.log(`${task.id}. ${status} ${task.Name} (${date})`);
     });
+    let len = finalTask.length;
+    let complete = 0;
+    complete = finalTask.filter(task => task.Completed === true);
+    let store = complete.length;
+    if(len ===0){
+        return ;
+    }
+    let progress = (store/len) * 100;
+    let filledBlock = Math.round(progress/10);
+    let emptyBlock = 10 - filledBlock;
+    const bar = "█".repeat(filledBlock) + "░".repeat(emptyBlock);
+    console.log(`Progress: ${bar} ${progress}%`);
 }
 
 function toggleTask(id){
