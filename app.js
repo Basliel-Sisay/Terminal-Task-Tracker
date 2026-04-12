@@ -4,7 +4,10 @@ const manager = require('./manager');
 const command = process.argv[2]; 
 const value = process.argv[3];
 try{
-if(command.toLowerCase() === 'add'){
+if(!command){
+    console.log("Hello User, Please provide a command (add, list, done, remove, clear)");
+}
+else if(command.toLowerCase() === 'add'){
     manager.addTask(value);
     console.log("Your "+ value+"is added successfully");
 }
@@ -18,6 +21,10 @@ else if(command.toLowerCase() === 'done'){
 else if(command.toLowerCase() === 'remove'){
     manager.remove(Number(value));
     console.log("Deleted task: "+ value);
+}
+else if(command.toLocaleLowerCase() === 'clear'){
+    manager.active();
+    console.log("Completed tasks purged, database optimized");
 }
 else {
     console.log("Please enter a valid command and try again later");
