@@ -49,6 +49,19 @@ function remove(id){
     saveChanges();
 }
 
+function active(){
+    let remainingTasks= finalTask.filter(task => task.Completed === false);
+    const reassingment = remainingTasks.map((task, index)=>({
+        id: index + 1,   
+        Name: task.Name,
+        Completed: task.Completed,
+        CreatedAt: task.CreatedAt,
+
+    }));
+    finalTask = reassingment;
+    saveChanges();
+}
+
 function saveChanges(){
 const finalFile = JSON.stringify(finalTask , null , 2);
 fs.writeFileSync(filePath, finalFile);
@@ -59,4 +72,5 @@ module.exports={
  remove,
  toggleTask,
  listTask,
+ active,
 };
